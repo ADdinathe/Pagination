@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "rm-source-maps": "find ./public -name *.js.map -type f -delete",
-    "dev": "NODE_ENV=development API_URL=/api/ webpack-dev-server --mode development",
+    "dev": "SET NODE_ENV=development& SET API_URL=/api/& webpack-dev-server --mode development",
     "build": "NODE_ENV=production webpack --mode production && yarn run rm-source-maps",
     "build-zip": "NODE_ENV=production IS_ZIP=true webpack --mode production && yarn run rm-source-maps",
     "ts-check": "tsc --project tsconfig.json",

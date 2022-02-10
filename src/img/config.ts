@@ -1,4 +1,1 @@
-export const allStatics = [
-  require('./vk-icon.png'),
-  require('./webpack-icon.svg'),
-];
+export const allStatics = [require('./morpheus.jpg')];

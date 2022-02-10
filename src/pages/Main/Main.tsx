@@ -1,17 +1,25 @@
 import { observer } from 'mobx-react';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 
-import { PanelEnum } from 'config/routes';
-import { buildVKLocation } from 'utils/router';
+import MyButton from '../../components/MyButton/MyButton';
+import MyLink from '../../components/MyLink/MyLink';
+import { PanelEnum } from '../../config/routes';
+
+import styles from './Main.modules.scss';
 
 const Main: React.FC = () => {
   return (
-    <div>
-      <Link to={buildVKLocation({ panel: PanelEnum.onboarding })}>
-        Go to Onboarding
-      </Link>
-    </div>
+    <>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Main</h1>
+        <MyButton destination={{ panel: PanelEnum.secondPage }}>
+          Go to secondPage
+        </MyButton>
+        <MyLink destination={{ panel: PanelEnum.onboarding }}>
+          Go to Onboarding
+        </MyLink>
+      </div>
+    </>
   );
 };
 
