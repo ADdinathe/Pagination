@@ -1,9 +1,9 @@
 import { observer } from 'mobx-react';
 import * as React from 'react';
 
-import MyButton from '../../components/MyButton/MyButton';
-import MyLink from '../../components/MyLink/MyLink';
-import { PanelEnum } from '../../config/routes';
+import MyButton from 'components/MyButton/MyButton';
+import MyLink from 'components/MyLink/MyLink';
+import { PanelEnum } from 'config/routes';
 
 import styles from './Onboarding.modules.scss';
 

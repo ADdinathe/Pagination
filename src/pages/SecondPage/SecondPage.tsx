@@ -1,10 +1,9 @@
 import { observer } from 'mobx-react';
 import * as React from 'react';
 
+import MyButton from 'components/MyButton';
+import MyLink from 'components/MyLink';
 import { PanelEnum } from 'config/routes';
-
-import MyButton from '../../components/MyButton';
-import MyLink from '../../components/MyLink';
 
 import styles from './SecondPage.modules.scss';
 
