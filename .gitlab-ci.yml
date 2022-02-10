@@ -1,0 +1,10 @@
+include:
+  project: mnt/ci
+  file: front/ci-special.yaml
+  ref: ${MNT_CI_REF}
+
+variables:
+  PROD_DOMAIN: Pagination.ru-prod2.kts.studio
+  DEV_BASE_DOMAIN: Pagination.kube1.ktsdev2.ru
+  DEV_API_DOMAIN: Pagination.kube1.ktsdev2.ru
+  VK_PROD_APP_ID: 1234567
