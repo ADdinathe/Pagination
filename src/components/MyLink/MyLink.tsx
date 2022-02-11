@@ -1,19 +1,24 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import { PanelEnum } from 'config/routes';
+import { COLORS } from 'config/colors';
+import { ModalEnum, PanelEnum } from 'config/routes';
 import { buildVKLocation } from 'utils/router';
 
 import styles from './MyLink.modules.scss';
 
 export interface LinkProps {
   children: React.ReactNode;
-  destination: { panel: PanelEnum };
+  destination: {
+    panel: PanelEnum;
+    modal?: ModalEnum;
+    state?: { color: COLORS; page: PanelEnum };
+  };
 }
 
 const MyLink: React.FC<LinkProps> = ({
   children,
-  destination = { panel: PanelEnum.main },
+  destination = { panel: PanelEnum.secondPage },
 }: LinkProps) => (
   <Link className={styles.link} to={buildVKLocation(destination)}>
     {children}

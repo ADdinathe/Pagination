@@ -29,7 +29,7 @@ export const ModalBody = styled.div`
   bottom: 4rem;
   transform: translate(-50%, -50%) scale(0.8);
   opacity: 0;
-  width: 96%;
+  width: 40%;
   padding: 1.6rem;
   background: #ffffff;
   border-radius: 1.8rem;

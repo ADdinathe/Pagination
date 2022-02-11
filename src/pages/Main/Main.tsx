@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import MyButton from 'components/MyButton/MyButton';
 import MyLink from 'components/MyLink/MyLink';
-import { PanelEnum } from 'config/routes';
+import { ModalEnum, PanelEnum } from 'config/routes';
 
 import styles from './Main.modules.scss';
 
@@ -15,7 +15,9 @@ const Main: React.FC = () => {
         <MyButton destination={{ panel: PanelEnum.secondPage }}>
           Go to secondPage
         </MyButton>
-        <MyLink destination={{ panel: PanelEnum.onboarding }}>
+        <MyLink
+          destination={{ panel: PanelEnum.onboarding, modal: ModalEnum.choice }}
+        >
           Go to Onboarding
         </MyLink>
       </div>

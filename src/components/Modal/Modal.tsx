@@ -20,7 +20,7 @@ const backgroundTransitionStyles = {
 
 const bodyTransitionStyles = {
   entering: { transform: 'translate(-50%, 0%)', opacity: 0 },
-  entered: { transform: 'translate(-50%, 0%)', opacity: 1 },
+  entered: { transform: 'translate(-50%, -100%)', opacity: 1 },
   exiting: { transform: 'translate(-50%, 0%)', opacity: 0 },
   exited: { transform: 'translate(-50%, 0%)', opacity: 0 },
 };
@@ -33,13 +33,6 @@ type Props = {
 const Modal: React.FC<Props> = ({ id, children }: Props) => {
   const { modal } = useVKLocation();
   const { goBack } = useVKHistory();
-  const parent = React.useRef<HTMLDivElement>(
-    document.getElementById('modal') as any
-  );
-
-  if (!parent.current) {
-    return null;
-  }
 
   return (
     <Transition in={modal === id} timeout={300} mountOnEnter unmountOnExit>

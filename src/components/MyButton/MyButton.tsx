@@ -1,28 +1,28 @@
 import { Button } from '@vkontakte/vkui';
 import * as React from 'react';
 
+import { COLORS } from 'config/colors';
 import { ModalEnum, PanelEnum } from 'config/routes';
 import { useVKHistory } from 'utils/router';
-
-import { COLORS } from '../../config/colors';
 
 import styles from './MyButton.modules.scss';
 
 export interface ButtonProps {
   children: React.ReactNode;
   destination:
-    | { panel: PanelEnum; state?: { color: COLORS; page: string } }
-    | { modal: ModalEnum; state?: { color: COLORS; page: string } };
+    | { panel: PanelEnum; state?: { color: COLORS; page: PanelEnum } }
+    | { modal: ModalEnum; state?: { color: COLORS; page: PanelEnum } };
 }
 
 const RoutingButton: React.FC<ButtonProps> = ({
   children,
   destination = {
     panel: PanelEnum.main,
-    state: { color: COLORS.RED, page: 'Main page' },
+    state: { color: COLORS.RED, page: PanelEnum.main },
   },
 }: ButtonProps) => {
-  const { push } = useVKHistory<{ color: COLORS; page: string }>();
+  const { push } = useVKHistory<{ color: COLORS; page: PanelEnum }>();
+
   if (destination?.state?.color === COLORS.BLUE) {
     return (
       <Button
@@ -36,6 +36,7 @@ const RoutingButton: React.FC<ButtonProps> = ({
       </Button>
     );
   }
+
   return (
     <Button className={styles.button} onClick={() => push(destination)}>
       {children}

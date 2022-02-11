@@ -4,27 +4,29 @@ import * as React from 'react';
 import Capsule from 'components/Capsule';
 import Modal from 'components/Modal';
 import { COLORS } from 'config/colors';
-import { ModalEnum } from 'config/routes';
-import { useVKLocation } from 'utils/router';
+import { ModalEnum, PanelEnum } from 'config/routes';
+import { useVKHistory, useVKLocation } from 'utils/router';
 
 import { Title, Wrapper } from './ChoosingModal.styles';
 
 const ChoosingModal: React.FC = () => {
+  const { push } = useVKHistory<{ color: COLORS; page: PanelEnum }>();
+
   const {
     state: { color, page },
-  } = useVKLocation<{ color: COLORS; page: string }>();
+  } = useVKLocation<{ color: COLORS; page: PanelEnum }>();
 
   return (
     <Modal id={ModalEnum.choice}>
       <Wrapper>
         <Title>Are you sure, Neo?</Title>
         <Capsule
-          color={color}
           onClick={() => {
-            console.log('CLICK');
+            push({ panel: page });
           }}
+          color={color}
         >
-          {page}
+          Go to {page}
         </Capsule>
       </Wrapper>
     </Modal>
