@@ -2,23 +2,50 @@ import { observer } from 'mobx-react';
 import * as React from 'react';
 
 import MyButton from 'components/MyButton';
-import MyLink from 'components/MyLink';
-import { PanelEnum } from 'config/routes';
+import { COLORS } from 'config/colors';
+import { ModalEnum } from 'config/routes';
+import { useVKLocation } from 'utils/router';
 
 import styles from './SecondPage.modules.scss';
+import ChoosingModal from './components/ChoosingModal';
 
-const Onboarding: React.FC = () => {
+const SecondPage: React.FC = () => {
+  const {
+    modal,
+    state: { color, page },
+  } = useVKLocation<{ color: COLORS; page: string }>();
   return (
     <>
       <div className={styles.container}>
-        <h1 className={styles.title}>Secondpage</h1>
-        <MyButton destination={{ panel: PanelEnum.onboarding }}>
+        <h1 className={styles.title}>SecondPage</h1>
+        <MyButton
+          destination={{
+            modal: ModalEnum.choice,
+            state: { color: COLORS.RED, page: 'Go to onboarding' },
+          }}
+        >
           Go to onboarding
         </MyButton>
-        <MyLink destination={{ panel: PanelEnum.main }}>Go to Main page</MyLink>
+        <MyButton
+          destination={{
+            modal: ModalEnum.choice,
+            state: { color: COLORS.BLUE, page: 'Go to Main page' },
+          }}
+        >
+          Go to Main page
+        </MyButton>
       </div>
+      {/*строка ниже почему-то не работает не работает*/}
+      {/*<ChoosingModal />*/}
+
+      {/*доказательство того что в теории должно работать*/}
+      {modal === ModalEnum.choice && (
+        <div className={styles.modal}>
+          <div className={styles.modal_title}>hi there</div>
+        </div>
+      )}
     </>
   );
 };
 
-export default observer(Onboarding);
+export default observer(SecondPage);

@@ -13,7 +13,7 @@ export enum PanelEnum {
 }
 
 export enum ModalEnum {
-  greeting = 'greeting',
+  choice = 'choice',
 }
 
 export const routes: VKRoutesRecord = {

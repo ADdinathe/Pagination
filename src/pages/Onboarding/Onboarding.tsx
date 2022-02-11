@@ -13,7 +13,6 @@ const Onboarding: React.FC = () => {
       <div className={styles.container}>
         <h1 className={styles.title}>Onboarding</h1>
         <MyButton destination={{ panel: PanelEnum.main }}>
-          {' '}
           Go to Main page
         </MyButton>
         <MyLink destination={{ panel: PanelEnum.secondPage }}>
