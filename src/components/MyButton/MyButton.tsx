@@ -1,18 +1,17 @@
-import { Button } from '@vkontakte/vkui';
 import * as React from 'react';
 
 import { COLORS } from 'config/colors';
-import { ModalEnum, PanelEnum } from 'config/routes';
+import { PanelEnum } from 'config/routes';
 import { useVKHistory } from 'utils/router';
 
-import styles from './MyButton.modules.scss';
+import { DestinationType } from '../types';
 
-export interface ButtonProps {
+import { StyledButton } from './MyButton.styles';
+
+export type ButtonProps = {
   children: React.ReactNode;
-  destination:
-    | { panel: PanelEnum; state?: { color: COLORS; page: PanelEnum } }
-    | { modal: ModalEnum; state?: { color: COLORS; page: PanelEnum } };
-}
+  destination: Omit<DestinationType, 'panel'> | Omit<DestinationType, 'modal'>;
+};
 
 const RoutingButton: React.FC<ButtonProps> = ({
   children,
@@ -23,24 +22,14 @@ const RoutingButton: React.FC<ButtonProps> = ({
 }: ButtonProps) => {
   const { push } = useVKHistory<{ color: COLORS; page: PanelEnum }>();
 
-  if (destination?.state?.color === COLORS.BLUE) {
-    return (
-      <Button
-        className={styles.button}
-        style={{ left: 1150, background: 'blue' }}
-        onClick={() => {
-          push(destination);
-        }}
-      >
-        {children}
-      </Button>
-    );
-  }
+  const handleClick = React.useCallback(() => {
+    push(destination);
+  }, [destination]);
 
   return (
-    <Button className={styles.button} onClick={() => push(destination)}>
+    <StyledButton color={destination?.state?.color} onClick={handleClick}>
       {children}
-    </Button>
+    </StyledButton>
   );
 };
 

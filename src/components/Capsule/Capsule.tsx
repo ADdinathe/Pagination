@@ -1,23 +1,21 @@
 import * as React from 'react';
 
-import { StyledButton } from './Capsulestyles';
+import { CapsuleButton } from './Capsule.styles';
 
-export interface Props {
+export type CapsuleProps = {
   children: React.ReactNode;
   color: string;
   onClick: () => void;
-}
+};
 
-const RoutingCapsule: React.FC<Props> = ({
+const Capsule: React.FC<CapsuleProps> = ({
   children,
   color,
   onClick,
-}: Props) => {
-  return (
-    <StyledButton onClick={onClick} color={color}>
-      {children}
-    </StyledButton>
-  );
-};
+}: CapsuleProps) => (
+  <CapsuleButton onClick={onClick} $color={color}>
+    {children}
+  </CapsuleButton>
+);
 
-export default React.memo(RoutingCapsule);
+export default React.memo(Capsule);

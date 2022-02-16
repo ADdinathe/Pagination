@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 
 import { COLORS } from 'config/colors';
 
-export const StyledButton = styled.button<{ color: string }>`
+export const CapsuleButton = styled.button<{ $color: string }>`
   color: white;
   padding: 1rem 2rem;
   border-radius: 2rem;
 
-  ${({ color }) =>
-    color === COLORS.RED
+  ${({ $color }) =>
+    $color === COLORS.RED
       ? css`
           background: rgb(255, 0, 0);
           background: linear-gradient(

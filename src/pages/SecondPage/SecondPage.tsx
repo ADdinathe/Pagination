@@ -13,35 +13,37 @@ const SecondPage: React.FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <h1 className={styles.title}>SecondPage</h1>
-        <MyButton
-          destination={{
-            modal: ModalEnum.choice,
-            state: { color: COLORS.RED, page: PanelEnum.onboarding },
-          }}
-        >
-          Go to onboarding
-        </MyButton>
+        <div className={styles.Photo_container}>
+          <h1 className={styles.title}>SecondPage</h1>
+          <MyButton
+            destination={{
+              modal: ModalEnum.choice,
+              state: { color: COLORS.RED, page: PanelEnum.onboarding },
+            }}
+          >
+            Go to onboarding
+          </MyButton>
 
-        {/*такая же кнопка только синяя вместо нее теперь ссылка*/}
-        {/*<MyButton*/}
-        {/*  destination={{*/}
-        {/*    modal: ModalEnum.choice,*/}
-        {/*    state: { color: COLORS.BLUE, page: PanelEnum.main },*/}
-        {/*  }}*/}
-        {/*>*/}
-        {/*  Go to Main page*/}
-        {/*</MyButton>*/}
+          {/*такая же кнопка только синяя вместо нее теперь ссылка*/}
+          {/*<MyButton*/}
+          {/*  destination={{*/}
+          {/*    modal: ModalEnum.choice,*/}
+          {/*    state: { color: COLORS.BLUE, page: PanelEnum.main },*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  Go to Main page*/}
+          {/*</MyButton>*/}
 
-        <MyLink
-          destination={{
-            panel: PanelEnum.secondPage,
-            modal: ModalEnum.choice,
-            state: { color: COLORS.BLUE, page: PanelEnum.main },
-          }}
-        >
-          Go to Main page
-        </MyLink>
+          <MyLink
+            destination={{
+              panel: PanelEnum.secondPage,
+              modal: ModalEnum.choice,
+              state: { color: COLORS.BLUE, page: PanelEnum.main },
+            }}
+          >
+            Go to Main page
+          </MyLink>
+        </div>
       </div>
       <ChoosingModal />
     </>

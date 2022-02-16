@@ -11,15 +11,20 @@ const Main: React.FC = () => {
   return (
     <>
       <div className={styles.container}>
-        <h1 className={styles.title}>Main</h1>
-        <MyButton destination={{ panel: PanelEnum.secondPage }}>
-          Go to secondPage
-        </MyButton>
-        <MyLink
-          destination={{ panel: PanelEnum.onboarding, modal: ModalEnum.choice }}
-        >
-          Go to Onboarding
-        </MyLink>
+        <div className={styles.Photo_container}>
+          <h1 className={styles.title}>Main</h1>
+          <MyButton destination={{ panel: PanelEnum.secondPage }}>
+            Go to secondPage
+          </MyButton>
+          <MyLink
+            destination={{
+              panel: PanelEnum.onboarding,
+              modal: ModalEnum.choice,
+            }}
+          >
+            Go to Onboarding
+          </MyLink>
+        </div>
       </div>
     </>
   );
