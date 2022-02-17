@@ -1,28 +1,22 @@
 import { observer } from 'mobx-react';
 import * as React from 'react';
 
-import MyButton from 'components/MyButton/MyButton';
-import MyLink from 'components/MyLink/MyLink';
 import { PanelEnum } from 'config/routes';
+
+import ColoredButtons from '../../components/ColoredButtons/ColoredButtons';
 
 import styles from './Onboarding.modules.scss';
 
-const Onboarding: React.FC = () => {
-  return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.Photo_container}>
-          <h1 className={styles.title}>Onboarding</h1>
-          <MyButton destination={{ panel: PanelEnum.main }}>
-            Go to Main page
-          </MyButton>
-          <MyLink destination={{ panel: PanelEnum.secondPage }}>
-            Go to secondPage
-          </MyLink>
-        </div>
-      </div>
-    </>
-  );
-};
+const Onboarding: React.FC = () => (
+  <div className={styles.container}>
+    <ColoredButtons
+      RedButton={{ panel: PanelEnum.main }}
+      BlueLink={{
+        panel: PanelEnum.secondPage,
+      }}
+      CurrentPage={'Onboarding'}
+    />
+  </div>
+);
 
 export default observer(Onboarding);

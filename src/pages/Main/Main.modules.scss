@@ -9,18 +9,3 @@
   align-items: center;
   background: black;
 }
-.Photo_container {
-   position: relative;
-   width: 50%;
-   height: 100%;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background: url('../../img/morpheus.jpg') no-repeat center / cover;
- }
-
-.title {
-  color: white;
-  font-size: 36px;
-}

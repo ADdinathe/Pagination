@@ -5,7 +5,7 @@ import { COLORS } from 'config/colors';
 export const StyledButton = styled.button<{ color?: COLORS }>`
   position: absolute;
   top: 73%;
-  left: 18%;
+  left: 15%;
   background: red;
   padding: 1rem;
   border-radius: 1rem;
@@ -19,5 +19,6 @@ export const StyledButton = styled.button<{ color?: COLORS }>`
         `
       : css`
           background: blue;
+          left: 73%;
         `}
 `;
