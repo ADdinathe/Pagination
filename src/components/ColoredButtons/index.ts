@@ -1,1 +1,1 @@
-export { default } from './ColoredButtons';
+export { default } from './ChoiceButtonsWrapper';

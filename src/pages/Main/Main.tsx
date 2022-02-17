@@ -9,11 +9,11 @@ import styles from './Main.modules.scss';
 const Main: React.FC = () => (
   <div className={styles.container}>
     <ColoredButtons
-      RedButton={{ panel: PanelEnum.secondPage }}
-      BlueLink={{
+      redButton={{ panel: PanelEnum.secondPage }}
+      blueLink={{
         panel: PanelEnum.onboarding,
       }}
-      CurrentPage={'Main'}
+      title={PanelEnum.main.charAt(0).toUpperCase() + PanelEnum.main.slice(1)}
     />
   </div>
 );

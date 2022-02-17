@@ -1,22 +1,23 @@
-import { observer } from 'mobx-react';
 import * as React from 'react';
 
+import ColoredButtons from 'components/ColoredButtons/ChoiceButtonsWrapper';
 import { PanelEnum } from 'config/routes';
-
-import ColoredButtons from '../../components/ColoredButtons/ColoredButtons';
 
 import styles from './Onboarding.modules.scss';
 
 const Onboarding: React.FC = () => (
   <div className={styles.container}>
     <ColoredButtons
-      RedButton={{ panel: PanelEnum.main }}
-      BlueLink={{
+      redButton={{ panel: PanelEnum.main }}
+      blueLink={{
         panel: PanelEnum.secondPage,
       }}
-      CurrentPage={'Onboarding'}
+      title={
+        PanelEnum.onboarding.charAt(0).toUpperCase() +
+        PanelEnum.onboarding.slice(1)
+      }
     />
   </div>
 );
 
-export default observer(Onboarding);
+export default React.memo(Onboarding);

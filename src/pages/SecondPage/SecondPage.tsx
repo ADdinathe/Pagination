@@ -11,8 +11,11 @@ import ChoosingModal from './components/ChoosingModal';
 const SecondPage: React.FC = () => (
   <>
     <div className={styles.container}>
-      <div className={styles.Photo_container}>
-        <h1 className={styles.title}>SecondPage</h1>
+      <div className={styles.photo}>
+        <h1 className={styles.title}>
+          {PanelEnum.secondPage.charAt(0).toUpperCase() +
+            PanelEnum.secondPage.slice(1)}
+        </h1>
         <MyButton
           destination={{
             modal: ModalEnum.choice,
