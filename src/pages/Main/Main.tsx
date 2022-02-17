@@ -1,18 +1,21 @@
 import { observer } from 'mobx-react';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 
+import ColoredButtons from 'components/ColoredButtons';
 import { PanelEnum } from 'config/routes';
-import { buildVKLocation } from 'utils/router';
 
-const Main: React.FC = () => {
-  return (
-    <div>
-      <Link to={buildVKLocation({ panel: PanelEnum.onboarding })}>
-        Go to Onboarding
-      </Link>
-    </div>
-  );
-};
+import styles from './Main.modules.scss';
+
+const Main: React.FC = () => (
+  <div className={styles.container}>
+    <ColoredButtons
+      redButton={{ panel: PanelEnum.secondPage }}
+      blueLink={{
+        panel: PanelEnum.onboarding,
+      }}
+      title={PanelEnum.main.charAt(0).toUpperCase() + PanelEnum.main.slice(1)}
+    />
+  </div>
+);
 
 export default observer(Main);
